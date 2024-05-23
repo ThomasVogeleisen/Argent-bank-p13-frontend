@@ -1,0 +1,12 @@
+.bloc-user {
+  border: 1px solid black;
+  background-color: rgb(138, 138, 138);
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  text-align: center;
+}
+
+.picture-profil {
+  border-radius: 50%;
+}
