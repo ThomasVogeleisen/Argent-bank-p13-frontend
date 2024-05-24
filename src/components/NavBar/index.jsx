@@ -14,9 +14,17 @@ export function NavBar() {
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
       <div>
-        <Link className="main-nav-item" to={'/Sign-in'}>
+        <Link className="main-nav-item" to={'/login'}>
           <i className="fa fa-user-circle fa-margin"></i>
           Sign In
+        </Link>
+        <Link className="main-nav-item" to={'/'}>
+          <i className="fa fa-sign-out fa-margin"></i>
+          Sign Out
+        </Link>
+        <Link className="main-nav-item" to={'/Profile'}>
+          <i className="fa fa-user-circle fa-margin"></i>
+          Tony
         </Link>
       </div>
     </nav>
