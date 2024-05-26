@@ -1,8 +1,9 @@
 import { Link, useLocation } from 'react-router-dom'
 import argentBankLogo from '../../assets/img/argentBankLogo.png'
 import './style.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { isEmpty } from '../../utils/isEmpty'
+import { userLogout } from '../../actions/user.action'
 
 export function NavBar() {
   const location = useLocation()
@@ -10,6 +11,12 @@ export function NavBar() {
   const isLoginPage = location.pathname === '/login'
   const isProfilePage = location.pathname === '/profile'
   const user = useSelector((state) => state.userReducer)
+  const dispatch = useDispatch()
+
+  const logoutUser = () => {
+    dispatch(userLogout())
+  }
+
   return (
     <nav className="main-nav">
       <Link className="main-nav-logo" to={'/'}>
@@ -34,7 +41,7 @@ export function NavBar() {
           </Link>
         )}
         {isProfilePage && (
-          <Link className="main-nav-item" to={'/'}>
+          <Link onClick={() => logoutUser()} className="main-nav-item" to={'/'}>
             <i className="fa fa-sign-out fa-margin"></i>
             Sign Out
           </Link>
