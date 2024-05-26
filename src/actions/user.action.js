@@ -32,7 +32,10 @@ export const getDataUser = (token) => {
           type: GET_DATA_USER,
           payload: response.data,
         })
-        return response.data // Retourner le token pour chaîner les appels
+        return response.data
+      })
+      .catch((error) => {
+        throw error.message
       })
   }
 }

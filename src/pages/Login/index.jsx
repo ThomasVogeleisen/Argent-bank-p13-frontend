@@ -10,6 +10,7 @@ export function Login() {
   const dispatch = useDispatch()
   const rememberMe = JSON.parse(localStorage.getItem('rememberMe'))
   const [isCheck, setIsCheck] = useState(false)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     if (rememberMe) {
@@ -28,11 +29,16 @@ export function Login() {
     } else {
       localStorage.removeItem('rememberMe')
     }
-    dispatch(getToken(postData)).then((token) => {
-      dispatch(getDataUser(token)).then(() => {
-        navigate('/profile')
+    dispatch(getToken(postData))
+      .then((token) => {
+        dispatch(getDataUser(token)).then(() => {
+          navigate('/profile')
+        })
       })
-    })
+      .catch((error) => {
+        console.log(error.response.status)
+        setError(true)
+      })
   }
 
   return (
@@ -69,6 +75,13 @@ export function Login() {
           <button type="submit" className="sign-in-button">
             Sign In
           </button>
+          {error && (
+            <p className="error-message">
+              Une erreur est survenue
+              <br />
+              Verifiez vos identifiants
+            </p>
+          )}
         </form>
       </section>
     </main>

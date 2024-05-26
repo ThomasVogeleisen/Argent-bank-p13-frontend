@@ -56,3 +56,9 @@
 .input-remember {
   display: flex;
 }
+
+.error-message {
+  color: red;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
