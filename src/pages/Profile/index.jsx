@@ -1,13 +1,18 @@
 import './style.css'
+import { useSelector } from 'react-redux'
+import { isEmpty } from '../../utils/isEmpty'
 
 export function Profile() {
+  const user = useSelector((state) => state.userReducer)
+  console.log(user)
   return (
     <main className="main bg-dark">
       <div className="header">
         <h1>
           Welcome back
           <br />
-          Tony Jarvis!
+          {!isEmpty(user) &&
+            user.user.body.firstName + ' ' + user.user.body.lastName}
         </h1>
         <button className="edit-button">Edit Name</button>
       </div>
