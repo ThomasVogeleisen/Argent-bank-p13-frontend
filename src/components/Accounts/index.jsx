@@ -1,4 +1,5 @@
 import './style.css'
+import PropTypes from 'prop-types'
 
 export function Accounts({ title, amount }) {
   return (
@@ -13,4 +14,9 @@ export function Accounts({ title, amount }) {
       </div>
     </section>
   )
+}
+
+Accounts.propTypes = {
+  title: PropTypes.string.isRequired,
+  amount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 }

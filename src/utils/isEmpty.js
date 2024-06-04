@@ -1,3 +1,10 @@
+/**
+ * Vérifie si une valeur est vide.
+ *
+ * @param {*} value - La valeur à vérifier.
+ * @returns {boolean} - Renvoie `true` si la valeur est vide, sinon `false`.
+ */
+
 export const isEmpty = (value) => {
   return (
     value === undefined ||
